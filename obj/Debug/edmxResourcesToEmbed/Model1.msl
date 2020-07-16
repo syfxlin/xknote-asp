@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="xknoteModelStoreContainer" CdmEntityContainer="xknoteEntities">
+    <EntitySetMapping Name="blog_info">
+      <EntityTypeMapping TypeName="xknoteModel.blog_info">
+        <MappingFragment StoreEntitySet="blog_info">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="blog_token" ColumnName="blog_token" />
+          <ScalarProperty Name="blog_password" ColumnName="blog_password" />
+          <ScalarProperty Name="blog_username" ColumnName="blog_username" />
+          <ScalarProperty Name="blog_url" ColumnName="blog_url" />
+          <ScalarProperty Name="blog_system" ColumnName="blog_system" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="config">
+      <EntityTypeMapping TypeName="xknoteModel.config">
+        <MappingFragment StoreEntitySet="config">
+          <ScalarProperty Name="config_value" ColumnName="config_value" />
+          <ScalarProperty Name="config_name" ColumnName="config_name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="git_info">
+      <EntityTypeMapping TypeName="xknoteModel.git_info">
+        <MappingFragment StoreEntitySet="git_info">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="git_password" ColumnName="git_password" />
+          <ScalarProperty Name="git_email" ColumnName="git_email" />
+          <ScalarProperty Name="git_name" ColumnName="git_name" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="password_resets">
+      <EntityTypeMapping TypeName="xknoteModel.password_resets">
+        <MappingFragment StoreEntitySet="password_resets">
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_config">
+      <EntityTypeMapping TypeName="xknoteModel.user_config">
+        <MappingFragment StoreEntitySet="user_config">
+          <ScalarProperty Name="xk_setting" ColumnName="xk_setting" />
+          <ScalarProperty Name="ace_setting" ColumnName="ace_setting" />
+          <ScalarProperty Name="tinymce_setting" ColumnName="tinymce_setting" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="xknoteModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="remember_to" ColumnName="remember_to" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email_verif" ColumnName="email_verif" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="nickname" ColumnName="nickname" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,100 @@
+﻿@model xknote.Models.RegisterModel
+@{
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+@section title {
+    XK-Note注册
+}
+
+@section body_class {
+    xknote-register
+}
+
+@section header {
+    <section class="navbar-section">
+        <img class="xknote-icon" src="~/logo.png" alt="XK-Note icon"/>
+        <a href="/" class="btn btn-link text-large">XK-Note</a>
+    </section>
+    <section class="navbar-section">
+        <a href="@Url.Action("Index", "Home")" class="btn btn-link">欢迎</a>
+        <a href="@Url.Action("Index", "Login")" class="btn btn-link">登录</a>
+    </section>
+}
+
+@section main {
+    <div class="register">
+        <h1>XK-Note 注册</h1>
+        @using (Html.BeginForm("Post", "Register", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-4 col-sm-12">
+                        @Html.LabelFor(users => users.username, new { @class = "form-label" })
+                    </div>
+                    <div class="col-8 col-sm-12">
+                        @Html.EditorFor(users => users.username, new { htmlAttributes = new { @class = "form-input", id = "username", require = true, autofocus = true } })
+                        @Html.ValidationMessageFor(users => users.username, "", new { @class = "form-input-hint" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-4 col-sm-12">
+                        @Html.LabelFor(users => users.nickname, new { @class = "form-label" })
+                    </div>
+                    <div class="col-8 col-sm-12">
+                        @Html.EditorFor(users => users.nickname, new { htmlAttributes = new { @class = "form-input", id = "nickname", require = true, autofocus = true } })
+                        @Html.ValidationMessageFor(users => users.nickname, "", new { @class = "form-input-hint" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-4 col-sm-12">
+                        @Html.LabelFor(users => users.email, new { @class = "form-label" })
+                    </div>
+                    <div class="col-8 col-sm-12">
+                        @Html.EditorFor(users => users.email, new { htmlAttributes = new { @class = "form-input", id = "email", require = true, autofocus = true, type = "email" } })
+                        @Html.ValidationMessageFor(users => users.email, "", new { @class = "form-input-hint" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-4 col-sm-12">
+                        @Html.LabelFor(users => users.password, new { @class = "form-label" })
+                    </div>
+                    <div class="col-8 col-sm-12">
+                        @Html.EditorFor(users => users.password, new { htmlAttributes = new { @class = "form-input", id = "password", require = true, autofocus = true, type = "password" } })
+                        @Html.ValidationMessageFor(users => users.password, "", new { @class = "form-input-hint" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-4 col-sm-12">
+                        @Html.LabelFor(users => users.password_confirmation, new { @class = "form-label" })
+                    </div>
+                    <div class="col-8 col-sm-12">
+                        @Html.EditorFor(users => users.password_confirmation, new { htmlAttributes = new { @class = "form-input", id = "password_confirmation", require = true, autofocus = true, type = "password" } })
+                        @Html.ValidationMessageFor(users => users.password_confirmation, "", new { @class = "form-input-hint" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-4 col-sm-12"></div>
+                    <div class="col-8 col-sm-12">
+                        <button type="submit" class="btn btn-primary">注册</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@section footer {
+    <div class="xknote-copyright bg-gray">
+        <span>©</span>
+        <a href="https://github.com/syfxlin/xknote">XK-Note</a> By
+        <a href="https://ixk.me">Otstar Lin</a>
+    </div>
+}
+
+@section script {
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}

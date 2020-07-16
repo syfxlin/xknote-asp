@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="xknoteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="blog_info">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="uid" Type="bigint" Nullable="false" />
+          <Property Name="blog_system" Type="nvarchar" MaxLength="254" />
+          <Property Name="blog_url" Type="nvarchar" MaxLength="254" />
+          <Property Name="blog_username" Type="nvarchar" MaxLength="254" />
+          <Property Name="blog_password" Type="nvarchar" MaxLength="254" />
+          <Property Name="blog_token" Type="ntext" />
+          <Property Name="created_at" Type="datetime2" Precision="7" />
+          <Property Name="updated_at" Type="datetime2" Precision="7" />
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="config">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="config_name" Type="nvarchar" MaxLength="254" Nullable="false" />
+          <Property Name="config_value" Type="nvarchar" MaxLength="254" />
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="git_info">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="uid" Type="bigint" />
+          <Property Name="git_name" Type="nvarchar" MaxLength="254" />
+          <Property Name="git_email" Type="nvarchar" MaxLength="254" />
+          <Property Name="git_password" Type="ntext" />
+          <Property Name="created_at" Type="datetime2" Precision="7" />
+          <Property Name="updated_at" Type="datetime2" Precision="7" />
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="password_resets">
+          <Key>
+            <PropertyRef Name="email" />
+          </Key>
+          <Property Name="email" Type="nvarchar" MaxLength="254" Nullable="false" />
+          <Property Name="token" Type="nvarchar" MaxLength="254" />
+          <Property Name="created_at" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="user_config">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="uid" Type="bigint" />
+          <Property Name="tinymce_setting" Type="ntext" />
+          <Property Name="ace_setting" Type="ntext" />
+          <Property Name="xk_setting" Type="ntext" />
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="username" Type="nvarchar" MaxLength="254" />
+          <Property Name="nickname" Type="nvarchar" MaxLength="254" />
+          <Property Name="email" Type="nvarchar" MaxLength="254" />
+          <Property Name="email_verif" Type="datetime2" Precision="7" />
+          <Property Name="password" Type="nvarchar" MaxLength="254" />
+          <Property Name="remember_to" Type="nvarchar" MaxLength="254" />
+          <Property Name="created_at" Type="datetime2" Precision="7" />
+          <Property Name="updated_at" Type="datetime2" Precision="7" />
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="xknoteModelStoreContainer">
+          <EntitySet Name="blog_info" EntityType="Self.blog_info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="config" EntityType="Self.config" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="git_info" EntityType="Self.git_info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="password_resets" EntityType="Self.password_resets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_config" EntityType="Self.user_config" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="xknoteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="xknoteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="blog_info" EntityType="xknoteModel.blog_info" />
+          <EntitySet Name="config" EntityType="xknoteModel.config" />
+          <EntitySet Name="git_info" EntityType="xknoteModel.git_info" />
+          <EntitySet Name="password_resets" EntityType="xknoteModel.password_resets" />
+          <EntitySet Name="user_config" EntityType="xknoteModel.user_config" />
+          <EntitySet Name="users" EntityType="xknoteModel.users" />
+        </EntityContainer>
+        <EntityType Name="blog_info">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="uid" Type="Int64" Nullable="false" />
+          <Property Name="blog_system" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="blog_url" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="blog_username" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="blog_password" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="blog_token" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="created_at" Type="DateTime" Precision="7" />
+          <Property Name="updated_at" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="config">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="config_name" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="config_value" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="git_info">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="uid" Type="Int64" />
+          <Property Name="git_name" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="git_email" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="git_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="created_at" Type="DateTime" Precision="7" />
+          <Property Name="updated_at" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="password_resets">
+          <Key>
+            <PropertyRef Name="email" />
+          </Key>
+          <Property Name="email" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="token" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="created_at" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="user_config">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="uid" Type="Int64" />
+          <Property Name="tinymce_setting" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ace_setting" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="xk_setting" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="nickname" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="email_verif" Type="DateTime" Precision="7" />
+          <Property Name="password" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="remember_to" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="created_at" Type="DateTime" Precision="7" />
+          <Property Name="updated_at" Type="DateTime" Precision="7" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="xknoteModelStoreContainer" CdmEntityContainer="xknoteEntities">
+          <EntitySetMapping Name="blog_info">
+            <EntityTypeMapping TypeName="xknoteModel.blog_info">
+              <MappingFragment StoreEntitySet="blog_info">
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="blog_token" ColumnName="blog_token" />
+                <ScalarProperty Name="blog_password" ColumnName="blog_password" />
+                <ScalarProperty Name="blog_username" ColumnName="blog_username" />
+                <ScalarProperty Name="blog_url" ColumnName="blog_url" />
+                <ScalarProperty Name="blog_system" ColumnName="blog_system" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="config">
+            <EntityTypeMapping TypeName="xknoteModel.config">
+              <MappingFragment StoreEntitySet="config">
+                <ScalarProperty Name="config_value" ColumnName="config_value" />
+                <ScalarProperty Name="config_name" ColumnName="config_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="git_info">
+            <EntityTypeMapping TypeName="xknoteModel.git_info">
+              <MappingFragment StoreEntitySet="git_info">
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="git_password" ColumnName="git_password" />
+                <ScalarProperty Name="git_email" ColumnName="git_email" />
+                <ScalarProperty Name="git_name" ColumnName="git_name" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="password_resets">
+            <EntityTypeMapping TypeName="xknoteModel.password_resets">
+              <MappingFragment StoreEntitySet="password_resets">
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_config">
+            <EntityTypeMapping TypeName="xknoteModel.user_config">
+              <MappingFragment StoreEntitySet="user_config">
+                <ScalarProperty Name="xk_setting" ColumnName="xk_setting" />
+                <ScalarProperty Name="ace_setting" ColumnName="ace_setting" />
+                <ScalarProperty Name="tinymce_setting" ColumnName="tinymce_setting" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="xknoteModel.users">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="remember_to" ColumnName="remember_to" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email_verif" ColumnName="email_verif" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="nickname" ColumnName="nickname" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

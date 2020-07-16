@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="xknoteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="blog_info">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="uid" Type="bigint" Nullable="false" />
+    <Property Name="blog_system" Type="nvarchar" MaxLength="254" />
+    <Property Name="blog_url" Type="nvarchar" MaxLength="254" />
+    <Property Name="blog_username" Type="nvarchar" MaxLength="254" />
+    <Property Name="blog_password" Type="nvarchar" MaxLength="254" />
+    <Property Name="blog_token" Type="ntext" />
+    <Property Name="created_at" Type="datetime2" Precision="7" />
+    <Property Name="updated_at" Type="datetime2" Precision="7" />
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="config">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="config_name" Type="nvarchar" MaxLength="254" Nullable="false" />
+    <Property Name="config_value" Type="nvarchar" MaxLength="254" />
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="git_info">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="uid" Type="bigint" />
+    <Property Name="git_name" Type="nvarchar" MaxLength="254" />
+    <Property Name="git_email" Type="nvarchar" MaxLength="254" />
+    <Property Name="git_password" Type="ntext" />
+    <Property Name="created_at" Type="datetime2" Precision="7" />
+    <Property Name="updated_at" Type="datetime2" Precision="7" />
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="password_resets">
+    <Key>
+      <PropertyRef Name="email" />
+    </Key>
+    <Property Name="email" Type="nvarchar" MaxLength="254" Nullable="false" />
+    <Property Name="token" Type="nvarchar" MaxLength="254" />
+    <Property Name="created_at" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="user_config">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="uid" Type="bigint" />
+    <Property Name="tinymce_setting" Type="ntext" />
+    <Property Name="ace_setting" Type="ntext" />
+    <Property Name="xk_setting" Type="ntext" />
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="username" Type="nvarchar" MaxLength="254" />
+    <Property Name="nickname" Type="nvarchar" MaxLength="254" />
+    <Property Name="email" Type="nvarchar" MaxLength="254" />
+    <Property Name="email_verif" Type="datetime2" Precision="7" />
+    <Property Name="password" Type="nvarchar" MaxLength="254" />
+    <Property Name="remember_to" Type="nvarchar" MaxLength="254" />
+    <Property Name="created_at" Type="datetime2" Precision="7" />
+    <Property Name="updated_at" Type="datetime2" Precision="7" />
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="xknoteModelStoreContainer">
+    <EntitySet Name="blog_info" EntityType="Self.blog_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="config" EntityType="Self.config" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="git_info" EntityType="Self.git_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="password_resets" EntityType="Self.password_resets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_config" EntityType="Self.user_config" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

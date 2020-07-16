@@ -1,0 +1,81 @@
+﻿@model xknote.Models.LoginModel
+@{
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+@section title {
+    XK-Note登录
+}
+
+@section body_class {
+    xknote-login
+}
+
+@section header {
+    <section class="navbar-section">
+        <img class="xknote-icon" src="~/logo.png" alt="XK-Note icon"/>
+        <a href="~/" class="btn btn-link text-large">XK-Note</a>
+    </section>
+    <section class="navbar-section">
+        <a href="@Url.Action("Index", "Home")" class="btn btn-link">欢迎</a>
+        <a href="@Url.Action("Index", "Register")" class="btn btn-link">注册</a>
+    </section>
+}
+
+@section main {
+    <div class="login">
+        <h1>XK-Note</h1>
+        @using (Html.BeginForm("Post", "Login", FormMethod.Post))
+        {
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-4 col-sm-12">
+                        @Html.LabelFor(users => users.username, new { @class = "form-label" })
+                    </div>
+                    <div class="col-8 col-sm-12">
+                        @Html.EditorFor(users => users.username, new { htmlAttributes = new { @class = "form-input", id = "username", require = true, autofocus = true } })
+                        @Html.ValidationMessageFor(users => users.username, "", new { @class = "form-input-hint" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-4 col-sm-12">
+                        @Html.LabelFor(users => users.password, new { @class = "form-label" })
+                    </div>
+                    <div class="col-8 col-sm-12">
+                        @Html.EditorFor(users => users.password, new { htmlAttributes = new { @class = "form-input", id = "password", require = true, autofocus = true, type = "password" } })
+                        @Html.ValidationMessageFor(users => users.password, "", new { @class = "form-input-hint" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-4 col-sm-12"></div>
+                    <div class="col-8 col-sm-12">
+                        <label class="form-switch" for="remember">
+                            <input type="checkbox" name="remember" id="remember" checked="checked">
+                            <i class="form-icon"></i> 记住我
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-4 col-sm-12"></div>
+                    <div class="col-8 col-sm-12">
+                        <button type="submit" class="btn btn-primary">登录</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@section footer {
+    <div class="xknote-copyright bg-gray">
+        <span>©</span>
+        <a href="https://github.com/syfxlin/xknote">XK-Note</a> By
+        <a href="https://ixk.me">Otstar Lin</a>
+    </div>
+}
+
+@section script {
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="xknoteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="xknoteEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="blog_info" EntityType="xknoteModel.blog_info" />
+    <EntitySet Name="config" EntityType="xknoteModel.config" />
+    <EntitySet Name="git_info" EntityType="xknoteModel.git_info" />
+    <EntitySet Name="password_resets" EntityType="xknoteModel.password_resets" />
+    <EntitySet Name="user_config" EntityType="xknoteModel.user_config" />
+    <EntitySet Name="users" EntityType="xknoteModel.users" />
+  </EntityContainer>
+  <EntityType Name="blog_info">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" />
+    <Property Name="uid" Type="Int64" Nullable="false" />
+    <Property Name="blog_system" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+    <Property Name="blog_url" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+    <Property Name="blog_username" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+    <Property Name="blog_password" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+    <Property Name="blog_token" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="7" />
+    <Property Name="updated_at" Type="DateTime" Precision="7" />
+  </EntityType>
+  <EntityType Name="config">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" />
+    <Property Name="config_name" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="config_value" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="git_info">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" />
+    <Property Name="uid" Type="Int64" />
+    <Property Name="git_name" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+    <Property Name="git_email" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+    <Property Name="git_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="7" />
+    <Property Name="updated_at" Type="DateTime" Precision="7" />
+  </EntityType>
+  <EntityType Name="password_resets">
+    <Key>
+      <PropertyRef Name="email" />
+    </Key>
+    <Property Name="email" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="true" />
+    <Property Name="token" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="7" />
+  </EntityType>
+  <EntityType Name="user_config">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" />
+    <Property Name="uid" Type="Int64" />
+    <Property Name="tinymce_setting" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ace_setting" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="xk_setting" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" />
+    <Property Name="username" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+    <Property Name="nickname" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+    <Property Name="email_verif" Type="DateTime" Precision="7" />
+    <Property Name="password" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+    <Property Name="remember_to" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="7" />
+    <Property Name="updated_at" Type="DateTime" Precision="7" />
+  </EntityType>
+</Schema>
